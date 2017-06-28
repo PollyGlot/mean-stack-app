@@ -1,0 +1,44 @@
+.order {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;;
+    align-content: center;;
+    align-items: stretch;;
+}
+
+.order p {
+    padding: 10px;
+	margin: 5px;
+	background-color:#BBDEFB;
+    color:#546E7A;
+    width: 23%;
+    /*height: 20%;*/
+	/*margin-bottom:8px;*/
+	box-shadow:0 1px 1px rgba(0,0,0,0.1);
+	cursor:pointer;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    font-weight:bold;
+}
+
+.order p span{
+	float:right;
+}
+
+.order p.active{
+	background-color:#9CCC65;
+}
+
+div.total{
+	border-top:1px solid #dddddd;
+	padding:15px 30px;
+	font-size:20px;
+	font-weight:bold;
+	text-align: left;
+	color:#546E7A;
+}
+
+div.total span{
+	float:right;
+}

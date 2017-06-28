@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DIPLOMA APP</title>
+    <!-- FOR ANGULAR ROUTING -->
+    <base href="/">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../assets/styles/bootstrap/bootswatch.min.css">
+    <link rel="stylesheet" href="../../assets/styles/main.css">
+    <!-- <link rel="stylesheet" href="../../assets/styles/grid/flexbox-grid.min.css"> -->
+    <!-- <link rel="stylesheet" href="../../assets/styles/angular-chart/angular-chart.css"> -->
+    <!--<link rel="stylesheet" href="../../assets/styles/sidebar.css">-->
+    <link rel="stylesheet" href="../../assets/styles/animate/animate.min.css">
+</head>
+<body ng-app="userApp" ng-controller="mainController as main">
+
+<nav class="navbar navbar-inverse navbar-static-top" bs-navbar ng-controller="translateController">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">restorder</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav" bs-active-link>
+        <li data-match-route="/partners"><a href="/partners">Partners</a></li>
+        <li data-match-route="/restaurants"><a href="/restaurants">Restaurants</a></li>
+        <li data-match-route="/about"><a href="/about">{{ 'ABOUT' | translate }}</a></li>
+
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a ng-if="!main.loggedIn" href="/login" class="">Login</a></li>
+        <li ng-if="main.loggedIn" class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ 'HELLO' | translate }}, {{ main.user.username }}! <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a ng-if="main.loggedIn" href="/dashboard">Dashboard</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a ng-if="main.loggedIn" ng-click="main.doLogout()" href="/">Logout</a></li>
+          </ul>
+        </li>
+        <li class="lang"><a href="#" ng-click="changeLanguage('en')">ENG</a></li>
+        <li class="lang"><a href="#" ng-click="changeLanguage('ru')">RUS</a></li>
+        <li class="lang"><a href="#" ng-click="changeLanguage('fr')">FRA</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main class="container">
+    <!-- ANGULAR VIEWS -->
+    <div ng-view></div>
+</main>
+
+<!-- angular, angular-route, angular-animate -->
+<script src="../../assets/libs/angular/angular.js"></script>
+<script src="../../assets/libs/angular/angular-route.js"></script>
+<script src="../../assets/libs/angular/angular-animate.js"></script>
+
+<!-- controllers -->
+<script src="app/controllers/mainCtrl.js"></script>
+<script src="app/controllers/userCtrl.js"></script>
+<script src="app/controllers/headerCtrl.js"></script>
+<script src="app/controllers/translateCtrl.js"></script>
+<script src="app/controllers/productCtrl.js"></script>
+<script src="app/controllers/orderCtrl.js"></script>
+<script src="app/controllers/homeCtrl.js"></script>
+<!-- <script src="app/controllers/chartCtrl.js"></script> -->
+
+<!-- directives -->
+<!--<script src="app/directives/customNavbar.js"></script>-->
+
+<!-- services -->
+<script src="app/services/authService.js"></script>
+<script src="app/services/userService.js"></script>
+<script src="app/services/productService.js"></script>
+<script src="app/services/homeService.js"></script>
+
+<!-- main Angular app files -->
+<script src="app/app.routes.js"></script>
+<script src="app/app.js"></script>
+
+<!-- JS Libs -->
+<script src="../../assets/libs/jquery/jquery.min.js"></script>
+<script src="../../assets/libs/angular-strap/angular-strap.min.js"></script>
+<script src="../../assets/libs/angular-strap/angular-strap.tpl.min.js"></script>
+<script src="../../assets/libs/bootstrap/bootstrap-dropdown.js"></script>
+<script src="../../assets/libs/bootstrap/bootstrap.min.js"></script>
+<script src="../../assets/js/main.js"></script>
+<script src="../../assets/libs/angular-translate/angular-translate.js"></script>
+<!-- <script src="../../assets/libs/angular-chart/angular-chart.min.js"></script> -->
+
+</body>
+</html>

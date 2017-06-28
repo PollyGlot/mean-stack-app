@@ -1,0 +1,35 @@
+<div class="jumbotron">
+    <div class="container">
+    <h1>{{ 'HEADLINE' | translate }}</h1>
+
+    <p>
+      <a class="btn btn-lg btn-primary" href="/order" role="button">{{ 'ORDER_BTN_HOME' | translate }} »</a>
+      <a class="btn btn-lg btn-primary" onclick="showNotification()" href="#" role="button">Click me :)</a>
+    </p>
+
+        <!-- <p>{{ 'HEADLINE' | translate }}</p>
+        <p>{{ 'PARAGRAPH' | translate }}</p>
+
+        <p translate>PASSED_AS_TEXT</p>
+        <p translate="PASSED_AS_ATTRIBUTE"></p>
+        <p translate>{{ 'PASSED_AS_INTERPOLATION' }}</p>
+        <p translate="{{ 'PASSED_AS_INTERPOLATION' }}"></p>
+        <p translate="VARIABLE_REPLACEMENT" translate-values="{ name: 'PascalPrecht' }"></p>
+        <p translate>MISSING_TRANSLATION</p> -->
+
+        <!-- <button ng-click="changeLanguage('de')" translate="BUTTON_LANG_DE"></button>
+        <button ng-click="changeLanguage('en')" translate="BUTTON_LANG_EN"></button> -->
+    </div>
+</div>
+
+<div class="jumbotron" ng-show="product.products">
+    <div class="container" >
+        <div class="burgers" ng-repeat="item in product.products">
+            <h3> {{ item.title }} </h3>
+            <img src="{{ item.image.url }}" alt="" />
+            <p>
+                {{ item.description }}
+            </p>
+        </div>
+  </div>
+</div>

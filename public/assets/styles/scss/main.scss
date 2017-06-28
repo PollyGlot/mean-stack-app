@@ -1,0 +1,48 @@
+// Sass utilities
+@import "helpers/variables";
+@import "helpers/functions";
+@import "helpers/mixins";
+
+// Base stuff
+// @import "base/reset";
+@import "base/typography";
+
+// Layout related stylesheets
+@import "layout/grid";
+@import "layout/header";
+@import "layout/footer";
+@import "layout/forms";
+@import "layout/navbar";
+@import "layout/sidebar";
+@import "layout/order";
+
+
+// COMPONENTS
+@import "components/navigation";
+@import "components/buttons";
+@import "components/header";
+
+// Page-specific stylesheets
+// @import "pages/home";
+// @import "pages/contact";
+
+
+// *, *:before, *:after { box-sizing: border-box; }
+//
+// body {
+//   color: #333;
+//   font-size: 14px;
+//   font-family: 'Roboto', Verdana, Arial, sans-serif;
+//   margin: 0;
+//   padding: 0;
+// }
+//
+// a { text-decoration: none; transition: all 0.3s linear 0s; }
+
+.navbar-inverse .navbar-nav > li > a {
+    font-size: 16px;
+}
+
+.table>thead:first-child>tr:first-child>th {
+    vertical-align: middle;
+}

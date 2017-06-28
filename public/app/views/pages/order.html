@@ -1,0 +1,21 @@
+<div class="jumbotron">
+    <div class="container">
+        <h1>Order Now</h1>
+        <!-- <form> -->
+            <div class="order">
+                <p ng-repeat="service in services" ng-click="toggleActive(service)" ng-class="{active:service.active}">
+                    {{service.name}}
+                    <br>
+                    <span>{{service.price | currency:'₴' }}</span>
+                </p>
+            </div>
+
+            <div class="total">
+                Total: <span>{{ total() | currency:'₴' }}</span>
+            </div>
+
+            <a href="/order/create" class="btn btn-default pull-right">
+                Check Out
+            </a>
+    </div>
+</div>

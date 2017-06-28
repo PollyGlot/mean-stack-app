@@ -1,0 +1,115 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2">
+            <div class="sidebar-nav">
+                <div class="navbar navbar-default" role="navigation" bs-navbar>
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <span class="visible-xs navbar-brand">Sidebar menu</span>
+                    </div>
+                    <div class="navbar-collapse collapse sidebar-navbar-collapse">
+                        <ul class="nav navbar-nav" bs-active-link>
+                            <li><a href="/dashboard">Dashboard</a></li>
+                            <li><a href="#">Orders</a></li>
+                            <li class="active"><a href="/products">Products</a></li>
+                            <li><a href="/users">Users</a></li>
+                            <li><a href="#">Restaurants</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-10">
+    	    <div class="page-header">
+                <h1>
+                    Products
+                    <a href="/products/create" class="btn btn-default">
+                        <span class="glyphicon glyphicon-plus"></span>
+                        New Product
+                    </a>
+                </h1>
+            </div>
+
+            <div class="jumbotron text-center" ng-show="product.processing">
+                <span class="glyphicon glyphicon-repeat spinner"></span>
+                <p>Loading Products...</p>
+            </div>
+
+            <!-- <div class="alert alert-info">
+                <p>Sort Type: {{ sortType }}</p>
+                <p>Sort Reverse: {{ sortReverse }}</p>
+                <p>Search Query: {{ searchProduct }}</p>
+            </div> -->
+            <form>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
+                        <input type="text" class="form-control" placeholder="Seach in products" ng-model="searchProduct">
+                    </div>
+                </div>
+            </form>
+
+            <table class="table table-bordered table-striped" ng-show="product.products">
+                <thead>
+                    <tr>
+                        <th>_id</th>
+                        <th>
+                            <a href="#" ng-click="sortType = 'title'; sortReverse = !sortReverse">
+                                Title
+                                <span ng-show="sortType == 'title' && !sortReverse" class="glyphicon glyphicon-triangle-bottom"></span>
+                                <span ng-show="sortType == 'title' && sortReverse" class="glyphicon glyphicon-triangle-top"></span>
+                            </a>
+                        </th>
+                        <th>
+                            <a href="#" ng-click="sortType = 'description'; sortReverse = !sortReverse">
+                                Description
+                                <span ng-show="sortType == 'description' && !sortReverse" class="glyphicon glyphicon-triangle-bottom"></span>
+                                <span ng-show="sortType == 'description' && sortReverse" class="glyphicon glyphicon-triangle-top"></span>
+
+                            </a>
+                        </th>
+                        <th>
+                            <a href="#" ng-click="sortType = 'price'; sortReverse = !sortReverse">
+                                Price
+                                <span ng-show="sortType == 'price' && !sortReverse" class="glyphicon glyphicon-triangle-bottom"></span>
+                                <span ng-show="sortType == 'price' && sortReverse" class="glyphicon glyphicon-triangle-top"></span>
+
+                            </a>
+                        </th>
+                        <th>
+                            <a href="#" ng-click="sortType = 'category'; sortReverse = !sortReverse">
+                                Category
+                                <span ng-show="sortType == 'category' && !sortReverse" class="glyphicon glyphicon-triangle-bottom"></span>
+                                <span ng-show="sortType == 'category' && sortReverse" class="glyphicon glyphicon-triangle-top"></span>
+                            </a>
+                        </th>
+                        <th>Image Url</th>
+                        <th class="col-sm-2"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in product.products | orderBy:sortType:sortReverse | filter:searchProduct">
+                        <td>{{ item._id }}</td>
+                        <td>{{ item.title }}</td>
+                        <td>{{ item.description }}</td>
+                        <td>{{ item.price | currency:'₴' }}</td>
+                        <td>{{ item.category }}</td>
+                        <td>
+                            <img src="{{ item.image.url }}" alt="" />
+                        </td>
+                        <!-- <td>{{ item.image.url }}</td> -->
+                        <td class="col-sm-2">
+                            <a ng-href="/products/{{ item._id }}" class="btn btn-danger"><span class="glyphicon glyphicon-pencil"></span></a>
+                            <a href="#" ng-click="product.deleteProduct(item._id)" class="btn btn-primary"><span class="glyphicon glyphicon-trash"></span></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
